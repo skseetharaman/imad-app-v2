@@ -24,7 +24,7 @@ var articleOne = {
   
   var articleTwo = {
   title: 'Article-Two: Suresh Seetharaman',
-  heading: 'Article-One',
+  heading: 'Article-Two',
   date: 'Feb 13, 2017',
   content:`
       <p> 
