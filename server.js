@@ -21,6 +21,23 @@ var articleOne = {
               Conversely, people who know what they want in life see the world differently.
       </p>`          
   }; 
+  
+  var articleTwo = {
+  title: 'Article-Two: Suresh Seetharaman',
+  heading: 'Article-One',
+  date: 'Feb 13, 2017',
+  content:`
+      <p> 
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+      </p>
+      <p> 
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+      </p>`          
+  }; 
 
 function createTemplate(data){
     var title = data.title;
@@ -68,16 +85,10 @@ app.get('/', function (req, res) {
 app.get('/:articleName', function (req, res){
  
       //var articleName = req.params.articleName;
-      res.send(createTemplate(articleOne));
+      res.send(createTemplate(articleTwo));
 });
 
-app.get('/article-two', function (req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
 
-app.get('/article-three', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
