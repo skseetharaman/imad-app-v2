@@ -5,43 +5,22 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articles = {
-    'article-One' :{
-      title: 'Article-One: Suresh Seetharaman',
-      heading: 'Article-One',
-      date: 'Feb 10, 2017',
-      content:`
-          <p> 
-                  Conversely, people who know what they want in life see the world differently.
-                  Conversely, people who know what they want in life see the world differently.
-                  Conversely, people who know what they want in life see the world differently.
-          </p>
-          <p> 
-                  Conversely, people who know what they want in life see the world differently.
-                  Conversely, people who know what they want in life see the world differently.
-                  Conversely, people who know what they want in life see the world differently.
-          </p>`          
-      },  
-    'article- Two' :{
-      title: 'Article-Two: Suresh Seetharaman',
-      heading: 'Article-Two',
-      date: 'Feb 13, 2017',
-      content:`
-          <p> 
-                  This is content for my second article
-          </p>`
-        
-    },
-    'article-Three' :{
-      title: 'Article-Three: Suresh Seetharaman',
-      heading: 'Article-Three',
-      date: 'Feb 15, 2017',
-      content:`
-          <p> 
-                  This is content for my third article
-          </p>`
-    }
-};
+var articleOne = {
+  title: 'Article-One: Suresh Seetharaman',
+  heading: 'Article-One',
+  date: 'Feb 10, 2017',
+  content:`
+      <p> 
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+      </p>
+      <p> 
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+              Conversely, people who know what they want in life see the world differently.
+      </p>`          
+  }; 
 
 function createTemplate(data){
     var title = data.title;
@@ -90,7 +69,7 @@ app.get('/', function (req, res) {
 app.get('/:articleName', function (req, res){
  
       //var articleName = req.params.articleName;
-      res.send(createTemplate(article-One));
+      res.send(createTemplate(articleOne));
 });
 
 
