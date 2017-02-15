@@ -5,22 +5,43 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
-var articleOne = {
-  title: 'Article-One: Suresh Seetharaman',
-  heading: 'Article-One',
-  date: 'Feb 10, 2017',
-  content:`
-      <p> 
-              Conversely, people who know what they want in life see the world differently.
-              Conversely, people who know what they want in life see the world differently.
-              Conversely, people who know what they want in life see the world differently.
-      </p>
-      <p> 
-              Conversely, people who know what they want in life see the world differently.
-              Conversely, people who know what they want in life see the world differently.
-              Conversely, people who know what they want in life see the world differently.
-      </p>`          
-  };          `
+var articles = {
+    'article-One' :{
+      title: 'Article-One: Suresh Seetharaman',
+      heading: 'Article-One',
+      date: 'Feb 10, 2017',
+      content:`
+          <p> 
+                  Conversely, people who know what they want in life see the world differently.
+                  Conversely, people who know what they want in life see the world differently.
+                  Conversely, people who know what they want in life see the world differently.
+          </p>
+          <p> 
+                  Conversely, people who know what they want in life see the world differently.
+                  Conversely, people who know what they want in life see the world differently.
+                  Conversely, people who know what they want in life see the world differently.
+          </p>`          
+      },  
+    'article- Two' :{
+      title: 'Article-Two: Suresh Seetharaman',
+      heading: 'Article-Two',
+      date: 'Feb 13, 2017',
+      content:`
+          <p> 
+                  This is content for my second article
+          </p>`
+        
+    },
+    'article-Three' :{
+      title: 'Article-Three: Suresh Seetharaman',
+      heading: 'Article-Three',
+      date: 'Feb 15, 2017',
+      content:`
+          <p> 
+                  This is content for my third article
+          </p>
+    }
+};
 
 function createTemplate(data){
     var title = data.title;
@@ -58,7 +79,7 @@ function createTemplate(data){
       
     </html>
     
-    returm htmlTemplate;
+    return htmlTemplate;
 }
 
 
@@ -68,17 +89,13 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-app.get('/article-one', function (req, res){
-      res.send(createTemplate(articleOne));
+app.get('/:articleName', function (req, res){
+ 
+      var articleName = req.params.articleName;
+      res.send(createTemplate(articles[articleName));
 });
 
-app.get('/article-two', function (req, res){
-    res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
-});
 
-app.get('/article-three', function (req, res){
-   res.sendFile(path.join(__dirname, 'ui', 'article-three.html'));
-});
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));
