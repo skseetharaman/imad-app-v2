@@ -39,7 +39,7 @@ var articles = {
       content:`
           <p> 
                   This is content for my third article
-          </p>
+          </p>`
     }
 };
 
@@ -51,7 +51,7 @@ function createTemplate(data){
     
     
     var htmlTemplate =
-    <html> 
+    `<html> 
         <head>
             <title>
               ${title}
@@ -77,10 +77,10 @@ function createTemplate(data){
               </div>
             </body>
       
-    </html>
+    </html>`
     
     return htmlTemplate;
-};
+}
 
 
 app.get('/', function (req, res) {
